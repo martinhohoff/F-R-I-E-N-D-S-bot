@@ -30,7 +30,7 @@ def main():
                        help='suppress printing the prime text (default false)')
 
     args = parser.parse_args()
-    sample(args)
+    return sample(args)
 
 def sample(args):
     with open(os.path.join(args.save_dir, 'config.pkl'), 'rb') as f:
@@ -45,7 +45,4 @@ def sample(args):
         if ckpt and ckpt.model_checkpoint_path:
             saver.restore(sess, ckpt.model_checkpoint_path)
             for _ in range(args.count):
-              print(model.sample(sess, words, vocab, args.n, args.prime, args.sample, args.pick, args.width, args.quiet))
-
-if __name__ == '__main__':
-    main()
+              return model.sample(sess, words, vocab, args.n, args.prime, args.sample, args.pick)
