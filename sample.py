@@ -10,11 +10,13 @@ from six.moves import cPickle
 from utils import TextLoader
 from model import Model
 
+from random import random
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--save_dir', type=str, default='save',
                        help='model directory to load stored checkpointed models from')
-    parser.add_argument('-n', type=int, default=200,
+    parser.add_argument('-n', type=int, default=(int(30*random()) + 5),
                        help='number of words to sample')
     parser.add_argument('--prime', type=str, default=' ',
                        help='prime text')
