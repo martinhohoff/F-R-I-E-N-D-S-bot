@@ -117,7 +117,14 @@ class Model():
         if pick == 1:
             state = sess.run(self.cell.zero_state(1, tf.float32))
             if not len(prime) or prime == ' ':
-                prime  = random.choice(list(vocab.keys()))
+                prime  = random.choice([
+                    'Monica:', 'Monica',
+                    'Chandler:', 'Chandler',
+                    'Ross:', 'Ross',
+                    'Joey:', 'Joey',
+                    'Phoebe:', 'Phoebe',
+                    'Rachel:', 'Rachel'
+                    ])
             if not quiet:
                 print(prime)
             for word in prime.split()[:-1]:
