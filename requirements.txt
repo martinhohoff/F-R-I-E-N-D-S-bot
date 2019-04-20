@@ -2,6 +2,5 @@ django
 gunicorn
 django-heroku
 tweepy
-credentials
 numpy
 tensorflow
